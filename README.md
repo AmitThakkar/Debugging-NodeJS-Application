@@ -9,6 +9,7 @@ If we are working on any **NodeJS** project/application, then it doesn't matters
 As we all know, **NodeJS** run on **Google**'s **V8 engine** and **V8** have extensive **debugger**. **NodeJS** also have provide built-in client for this **debugger**.
 
 To **debug** any **NodeJS** project/application we have to follow 3 simple below steps:
+
 1. Write `debugger;` into that part of program/project which we want to **debug**. That `debugger;` will work as breakpoint.
 2. To run our **NodeJS** application into **debug** mode, type `node debug` command and this command must be followed by our main **JavaScript/.js** file. For this blog we are using **app.js** as main **JavaScript** file so running the **app.js** file into **debug** mode, we have to type/run below command into location where **app.js**(main) **JavaScript** file located:  
    * `node debug app.js`
