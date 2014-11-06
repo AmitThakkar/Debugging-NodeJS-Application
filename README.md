@@ -17,6 +17,7 @@ To **debug** any **NodeJS** project/application we have to follow 3 simple below
    2. **next:** It used to move next statement/line of the code/program.
    3. **repl:** It used to evaluate the code. 
    4. **quit:** It used to quit from the debugging the program.
+   5. **help:** It used to see other commands.
    
 Enough for theory part. Lets **debug** a simple program:
 
@@ -41,7 +42,9 @@ console.log("My Name is", user.name, "and Age is", user.age);
 ```
 
 For **debugging** `app.js` lets follow all above 3 steps:
+
 1. **Add `debugger;` into the code**: After looking the `app.js` code, we know that we have placed only 2 `debugger`/`breakpoint` into the above code, that is on line no. **11 and 13**.
 2. **Run `NodeJS` in `debug` mode**: Type and run `node debug app.js`.
 3. **Play with `debugger`**: Lets use **cont**, **next**, **repl** and **quit** as below:
+
 ![debugging](https://raw.githubusercontent.com/AmitThakkar/Debugging-NodeJS-Application/master/debugging.png)
