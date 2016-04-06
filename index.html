@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Debugging-nodejs-application by AmitThakkar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Debugging-nodejs-application</h1>
+      <h2 class="project-tagline">This repository contains guild for how to debugging in NodeJS Application.</h2>
+      <a href="https://github.com/AmitThakkar/Debugging-NodeJS-Application" class="btn">View on GitHub</a>
+      <a href="https://github.com/AmitThakkar/Debugging-NodeJS-Application/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/AmitThakkar/Debugging-NodeJS-Application/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="debugging-nodejs-application" class="anchor" href="#debugging-nodejs-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debugging NodeJS Application</h1>
+
+<h5>
+<a id="this-repository-contains-guide-for-how-to-do-debug-into-nodejs-application" class="anchor" href="#this-repository-contains-guide-for-how-to-do-debug-into-nodejs-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>This repository contains guide for how to do debug into NodeJS Application.</h5>
+
+<p>If we are working on any <strong>NodeJS</strong> project/application, then it doesn't matter, we are starter or expert, or project is already live or building from scratch, <strong>Debugging</strong> is most important thing which helps us a lot to do development.</p>
+
+<blockquote>
+<p><strong>Note:</strong> We are assuming NodeJS is installed in your system, and you have basic knowledge of JavaScript and NodeJS.</p>
+</blockquote>
+
+<p>As we all know, <strong>NodeJS</strong> runs on <strong>Google</strong>'s <strong>V8 engine</strong> and <strong>V8</strong> has extensive <strong>debugger</strong>. <strong>NodeJS</strong> has also provided built-in client for this <strong>debugger</strong>.</p>
+
+<p>To <strong>debug</strong> any <strong>NodeJS</strong> project/application we have to follow 3 simple below steps:</p>
+
+<ol>
+<li>Write <code>debugger;</code> into that part of program/project which we want to <strong>debug</strong>. That <code>debugger;</code> will work as breakpoint.</li>
+<li>To run our <strong>NodeJS</strong> application into <strong>debug</strong> mode, type <code>node debug</code> command and this command must be followed by our main <strong>JavaScript/.js</strong> file. For this blog we are using <strong>app.js</strong> as main <strong>JavaScript</strong> file, so while running the <strong>app.js</strong> file into <strong>debug</strong> mode, we have to type/run below command into location where <strong>app.js</strong>(main) <strong>JavaScript</strong> file is located:
+
+<ul>
+<li><code>node debug app.js</code></li>
+</ul>
+</li>
+<li>To play with <strong>debugger</strong>, we need to know about below 4 operators:
+
+<ol>
+<li>
+<strong>cont:</strong> It is used to continue/move to next breakpoint/debugger of the program.</li>
+<li>
+<strong>next:</strong> It is used to move to next statement/line of the code/program.</li>
+<li>
+<strong>repl:</strong> It is used to evaluate the code.</li>
+<li>
+<strong>quit:</strong> It is used to quit from the debugging the program.</li>
+<li>
+<strong>help:</strong> It is used to see other commands.</li>
+</ol>
+</li>
+</ol>
+
+<p>Enough for theory part. Let's <strong>debug</strong> a simple program:</p>
+
+<p>Open your favourite editor, and copy paste below code in that, then save it as <strong>app.js</strong>.</p>
+
+<p><strong><a href="https://raw.githubusercontent.com/AmitThakkar/Debugging-NodeJS-Application/master/app.js">app.js</a></strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">/**</span>
+<span class="pl-c"> * Created by Amit Thakkar on 6/11/14.</span>
+<span class="pl-c"> */</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Program starting...<span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> one <span class="pl-k">=</span> <span class="pl-c1">1</span>, two <span class="pl-k">=</span> <span class="pl-c1">2</span>;
+<span class="pl-k">var</span> user <span class="pl-k">=</span> {
+  name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Amit Thakkar<span class="pl-pds">"</span></span>,
+  age<span class="pl-k">:</span> <span class="pl-c1">20</span>
+};
+<span class="pl-smi">user</span>.<span class="pl-smi">age</span> <span class="pl-k">+=</span> one<span class="pl-k">++</span> <span class="pl-k">+</span> <span class="pl-k">++</span>two <span class="pl-k">+</span> <span class="pl-k">++</span>one;
+<span class="pl-k">debugger</span>;
+<span class="pl-smi">user</span>.<span class="pl-smi">age</span> <span class="pl-k">-=</span> one<span class="pl-k">--</span> <span class="pl-k">-</span> <span class="pl-k">--</span>two <span class="pl-k">-</span> <span class="pl-k">--</span>one;
+<span class="pl-k">debugger</span>;
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>My Name is<span class="pl-pds">"</span></span>, <span class="pl-smi">user</span>.<span class="pl-c1">name</span>, <span class="pl-s"><span class="pl-pds">"</span>and Age is<span class="pl-pds">"</span></span>, <span class="pl-smi">user</span>.<span class="pl-smi">age</span>);</pre></div>
+
+<p>For <strong>debugging</strong> <code>app.js</code> lets follow all above 3 steps:</p>
+
+<ol>
+<li>
+<strong>Add <code>debugger;</code> into the code</strong>: After looking at the <code>app.js</code> code, we know that we have placed only 2 <code>debugger</code>/<code>breakpoint</code> into the above code, that is on line no. <strong>11 and 13</strong>.</li>
+<li>
+<strong>Run <code>NodeJS</code> in <code>debug</code> mode</strong>: Type and run <code>node debug app.js</code>.</li>
+<li>
+<strong>Play with <code>debugger</code></strong>: Lets use <strong>cont</strong>, <strong>next</strong>, <strong>repl</strong> and <strong>quit</strong> as below:</li>
+</ol>
+
+<p><img src="https://raw.githubusercontent.com/AmitThakkar/Debugging-NodeJS-Application/master/debugging.png" alt="debugging"></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/AmitThakkar/Debugging-NodeJS-Application">Debugging-nodejs-application</a> is maintained by <a href="https://github.com/AmitThakkar">AmitThakkar</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
