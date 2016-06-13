@@ -49,3 +49,13 @@ For **debugging** `app.js` lets follow all above 3 steps:
 3. **Play with `debugger`**: Lets use **cont**, **next**, **repl** and **quit** as below:
 
 ![debugging](https://raw.githubusercontent.com/AmitThakkar/Debugging-NodeJS-Application/master/debugging.png)
+
+Follow Me
+---
+[Github](https://github.com/AmitThakkar)
+
+[Twitter](https://twitter.com/amit_thakkar01)
+
+[LinkedIn](https://in.linkedin.com/in/amitthakkar01)
+
+[More Blogs By Me](http://amitthakkar.github.io/)
